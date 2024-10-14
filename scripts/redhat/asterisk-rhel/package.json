@@ -1,0 +1,28 @@
+{
+  "name": "@enera/asterisk-rhel",
+  "version": "1.0.3",
+  "description": "A CLI tool for managing Asterisk on RHEL systems for the Enera organization.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "ts-node ./src/testScript.ts",
+    "build": "tsc",
+    "start": "node ./dist/cli.js"
+  },
+  "bin": {
+    "asterisk-rhel": "./dist/cli.js",
+    "mc": "./dist/testScript.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enera-international/asterisk-rhel.git"
+  },
+  "author": "Enera International",
+  "license": "MIT",
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.8",
+    "zx": "^8.1.5"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}

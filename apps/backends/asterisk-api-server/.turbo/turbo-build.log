@@ -1,0 +1,4 @@
+
+> enera-asterisk-api-server@1.0.0 build
+> npx tsc --build
+

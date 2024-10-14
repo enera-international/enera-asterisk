@@ -1,0 +1,1 @@
+{"root":["./src/asteriskclient.ts","./src/asteriskmonitor.ts","./src/main.ts","./src/api.ts","./src/index.ts","./src/server.ts","./src/@types/misc.d.ts","./src/dataprovider/dataprovider.ts","./src/dataprovider/dataprovidertypes.ts","./src/dataprovider/ra-realtime-types.ts","./src/dataprovider/react-admin-converter.ts"],"version":"5.6.3"}
