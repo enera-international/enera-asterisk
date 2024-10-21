@@ -12,6 +12,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "sourceMap": true,
+    "declarationMap": true,
+    "declaration": true,
     "baseUrl": "."
   }
 }

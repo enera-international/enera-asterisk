@@ -2,8 +2,8 @@ import { defaultTheme } from 'react-admin'
 import red from '@mui/material/colors/red';
 
 const sidebar = {
-    width: 100,
-    closedWidth: 75,
+    width: 150,
+    closedWidth: 50,
 }
 
 export const myLightTheme = {
