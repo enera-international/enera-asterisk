@@ -31,6 +31,8 @@ sudo wget http://downloads.asterisk.org/pub/telephony/asterisk/old-releases/$AST
 
 source $ORIGINAL_CWD/utilities/install_asterisk_from_source.sh $ASTERISK_FILENAME
 
+sudo ./utilities/grant_asterisk_sudo.sh
+
 echo "Asterisk installation is complete."
 
 # Return to the original working directory

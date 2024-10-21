@@ -56,6 +56,11 @@ else
     echo "'asterisk' user already exists."
 fi
 
+# Create Enera API folder
+sudo mkdir -p /etc/asterisk/api
+sudo chown asterisk:asterisk /etc/asterisk/api
+sudo chmod 755 /etc/asterisk/api
+
 # Set Asterisk to start on boot
 sudo systemctl enable asterisk
 
