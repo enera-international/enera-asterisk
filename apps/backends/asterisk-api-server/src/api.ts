@@ -207,7 +207,7 @@ rtpend=${rtpend}
     }
 
     async update_system_configuration(request: Request) {
-        const general = JSON.parse(await fsp.readFile("/var/asterisk/api/general.conf", { encoding: 'utf8'}))
+        const general = JSON.parse(await fsp.readFile("/etc/asterisk/api/general.conf", { encoding: 'utf8'}))
         this.validate_general_conf(request, general)
 
         // Generate configuration files given the source data
@@ -248,14 +248,14 @@ rtpend=${rtpend}
         const asterisk_extensions_additional_conf = ""
         
         // Write the configuration files to disk
-        await fsp.writeFile("/var/asterisk/etc/enera/manager-general.conf", asterisk_manager_general_conf, {encoding: 'utf8' })
-        await fsp.writeFile("/var/asterisk/etc/enera/sip-extensions.conf", asterisk_sip_conf, {encoding: 'utf8' })
-        await fsp.writeFile("/var/asterisk/etc/enera/rtp-general.conf", asterisk_rtp_conf, {encoding: 'utf8' })
-        await fsp.writeFile("/var/asterisk/etc/enera/extensions-globals.conf", asterisk_extensions_globals_conf, {encoding: 'utf8' })
-        await fsp.writeFile("/var/asterisk/etc/enera/extensions-default.conf", asterisk_extensions_default_conf, {encoding: 'utf8' })
-        await fsp.writeFile("/var/asterisk/etc/enera/extensions-incoming.conf", asterisk_extensions_incoming_conf, {encoding: 'utf8' })
-        await fsp.writeFile("/var/asterisk/etc/enera/extensions-outgoing.conf", asterisk_extensions_outgoing_conf, {encoding: 'utf8' })
-        await fsp.writeFile("/var/asterisk/etc/enera/extensions-additional.conf", asterisk_extensions_additional_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/manager-general.conf", asterisk_manager_general_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/sip-extensions.conf", asterisk_sip_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/rtp-general.conf", asterisk_rtp_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/extensions-globals.conf", asterisk_extensions_globals_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/extensions-default.conf", asterisk_extensions_default_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/extensions-incoming.conf", asterisk_extensions_incoming_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/extensions-outgoing.conf", asterisk_extensions_outgoing_conf, {encoding: 'utf8' })
+        await fsp.writeFile("/etc/asterisk/api/extensions-additional.conf", asterisk_extensions_additional_conf, {encoding: 'utf8' })
         
         // Restart system services which depend on the configuration files
         chp.exec("sudo restart_asterisk")
@@ -264,7 +264,7 @@ rtpend=${rtpend}
     async general(request: Request) {
         let result
         try {
-            result = await this.handle_json_config_file(request, "/var/asterisk/api/general.conf", this.validate_general_conf.bind(this), this.update_system_configuration.bind(this))
+            result = await this.handle_json_config_file(request, "/etc/asterisk/api/general.conf", this.validate_general_conf.bind(this), this.update_system_configuration.bind(this))
         } catch(error: any) {
             result = { "success": false, errorMessage: error.message, errorStack: error.stack }
         } 
