@@ -34,9 +34,9 @@ write=all
 writetimeout = 10000
 `
     }
-    asterisk_sip_conf_header_template(sippport: number, codecs: string) {
+    asterisk_sip_conf_header_template(sipport: number, codecs: string) {
         return `[general]\n\
-port=%(sipport)d\n\
+port=${sipport}d\n\
 insecure=no\n\
 bindaddr=0.0.0.0\n\
 trustrpid=yes\n\
@@ -46,7 +46,7 @@ t38pt_udptl=yes,fec,maxdatagram=400\n\
 \n\
 ; Default codec settings, these will be overridden by each provider so this setting primarily applies to incoming calls.\n\
 disallow=all\n\
-allow=%(codecs)s\n\
+allow=${codecs}\n\
 \n\
 ; The user agent to report to sip peers\n\
 useragent=RapidReach\n\
@@ -258,7 +258,7 @@ rtpend=${rtpend}
         await fsp.writeFile("/etc/asterisk/api/extensions-additional.conf", asterisk_extensions_additional_conf, {encoding: 'utf8' })
         
         // Restart system services which depend on the configuration files
-        chp.exec("sudo restart_asterisk")
+        chp.exec("sudo systemctl restart asterisk")
     }
 
     async general(request: Request) {
