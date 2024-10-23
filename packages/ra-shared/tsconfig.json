@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.web.json",   // Extends the root config for common settings
-  "compilerOptions": {
-    "outDir": "./dist",               // Output compiled files in dist folder
-    "rootDir": "../..",               // Root directory for TypeScript files
-  },
-  "include": ["src/**/*"],            // Include all files in the src folder
-  "exclude": ["node_modules", "dist"] // Exclude node_modules and dist from compilation
-}

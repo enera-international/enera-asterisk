@@ -1,5 +1,5 @@
 import { AuthProvider, UserIdentity } from "react-admin";
-import { MsgRpcService } from "../shared/services/MsgRpcService.js"
+import { MsgRpcService } from "ra-shared"
 
 export const authProvider: AuthProvider = {
     login: async ({ username, password }) => {
